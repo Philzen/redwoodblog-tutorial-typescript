@@ -1,10 +1,10 @@
 import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web'
-import { ArticlesQuery } from 'types/graphql'
-import Article from '../Article'
+import Article from 'src/components/Article/Article'
+import { FindArticleQuery } from 'types/graphql'
 
 export const QUERY = gql`
-  query ArticlesQuery {
-    articles: posts {
+  query FindArticleQuery($id: Int!) {
+    article: post(id: $id) {
       id
       title
       body
@@ -21,12 +21,6 @@ export const Failure = ({ error }: CellFailureProps) => (
   <div style={{ color: 'red' }}>Error: {error.message}</div>
 )
 
-export const Success = ({ articles }: CellSuccessProps<ArticlesQuery>) => {
-  return (
-    <>
-      {articles.map((article) => (
-        <Article key={article.id} article={article} />
-      ))}
-    </>
-  )
+export const Success = ({ article }: CellSuccessProps<FindArticleQuery>) => {
+  return <Article article={article} />
 }
