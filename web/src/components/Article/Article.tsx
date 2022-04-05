@@ -1,4 +1,5 @@
 import { Link, routes } from '@redwoodjs/router'
+import CommentsCell from 'src/components/CommentsCell'
 
 import type { Post } from 'types/graphql'
 
@@ -25,6 +26,11 @@ const Article = ({ article, summary = false }: ArticleProps) => {
       <div className="mt-0.5 flex justify-end text-sm text-gray-600">
         Posted at: {article.createdAt}
       </div>
+      {!summary && (
+        <div className="mt-12">
+          <CommentsCell />
+        </div>
+      )}
     </article>
   )
 }
