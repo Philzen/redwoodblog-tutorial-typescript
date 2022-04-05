@@ -34,8 +34,14 @@ describe('ArticlesCell', () => {
   // 2. Add test: expect(screen.getByText('Hello, world')).toBeInTheDocument()
 
   it('renders Success successfully', async () => {
+    const articles = standard().articles
     expect(() => {
-      render(<Success articles={standard().articles} />)
+      render(<Success articles={articles} />)
     }).not.toThrow()
+
+    expect(screen.getByText(articles[0].title)).toBeInTheDocument()
+    expect(screen.getByText(articles[0].body)).toBeInTheDocument()
+    expect(screen.getByText(articles[1].title)).toBeInTheDocument()
+    expect(screen.getByText(articles[1].body)).toBeInTheDocument()
   })
 })
