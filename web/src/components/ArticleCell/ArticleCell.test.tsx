@@ -1,4 +1,4 @@
-import { render, screen } from '@redwoodjs/testing/web'
+import { render, screen } from '@redwoodjs/testing'
 import { Loading, Empty, Failure, Success } from './ArticleCell'
 import { standard } from './ArticleCell.mock'
 
