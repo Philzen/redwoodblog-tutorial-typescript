@@ -12,7 +12,8 @@ import {
 } from '@redwoodjs/forms'
 
 const ResetPasswordPage = ({ resetToken }) => {
-  const { isAuthenticated, reauthenticate, validateResetToken, resetPassword } = useAuth()
+  const { isAuthenticated, reauthenticate, validateResetToken, resetPassword } =
+    useAuth()
   const [enabled, setEnabled] = useState(true)
 
   useEffect(() => {
